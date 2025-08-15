@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raihan Daffa - Professional Waiter</title>
+  <title>Raihan Daffa - Professional Waiter & Web Developer</title>
   <style>
     /* Global Styles - Dark Theme */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     body {
       line-height: 1.6;
       color: #f0f0f0;
       background-color: #121212;
+      scroll-behavior: smooth;
     }
     header {
-      background: #1e1e1e;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      background: #1a1a1a;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
       padding: 1rem 0;
       position: fixed;
       width: 100%;
@@ -35,22 +36,24 @@
     }
     .logo {
       font-weight: bold;
-      font-size: 1.5rem;
-      color: #ff6b6b;
+      font-size: 1.8rem;
+      color: #ff7a7a;
+      letter-spacing: 1px;
     }
     nav ul {
       display: flex;
       list-style: none;
     }
     nav ul li a {
-      padding: 0 15px;
+      padding: 0 18px;
       text-decoration: none;
-      color: #f0f0f0;
+      color: #e0e0e0;
       font-weight: 500;
       transition: color 0.3s;
+      font-size: 1.1rem;
     }
     nav ul li a:hover {
-      color: #ff6b6b;
+      color: #ff7a7a;
     }
     section {
       padding: 100px 20px;
@@ -58,26 +61,47 @@
       margin: 0 auto;
     }
     h1, h2, h3 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #ffffff;
     }
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: #ff7a7a;
+      border-radius: 2px;
+    }
     p {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #d0d0d0;
+      font-size: 1.1rem;
     }
     .btn {
       display: inline-block;
-      background: #ff6b6b;
+      background: linear-gradient(135deg, #ff7a7a, #ff5252);
       color: white;
-      padding: 12px 25px;
+      padding: 14px 32px;
       text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
+      border-radius: 8px;
+      margin-top: 25px;
       font-weight: bold;
-      transition: background 0.3s;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 82, 82, 0.3);
     }
     .btn:hover {
-      background: #ff4757;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 82, 82, 0.4);
     }
     /* Hero Section */
     .hero {
@@ -87,139 +111,243 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+      background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
                   url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
-      color: white;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
     }
     .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-size: 4rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      letter-spacing: 1px;
     }
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       max-width: 700px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      margin: 0 auto 30px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     }
     /* About Section */
     .about-content {
       display: flex;
       align-items: center;
-      gap: 40px;
-      margin-top: 40px;
+      gap: 50px;
+      margin-top: 50px;
     }
     .about-content img {
-      width: 220px;
-      height: 220px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid #ff6b6b;
-      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      border: 6px solid #ff7a7a;
+      box-shadow: 0 5px 25px rgba(255, 122, 122, 0.4);
+      flex-shrink: 0;
+    }
+    .about-text {
+      flex: 1;
     }
     .skills {
-      margin-top: 40px;
+      margin-top: 50px;
     }
     .skills ul {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 15px;
       list-style: none;
     }
     .skills li {
-      background: #ff6b6b;
+      background: linear-gradient(135deg, #ff7a7a, #e05555);
       color: white;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.95rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s;
+    }
+    .skills li:hover {
+      transform: translateY(-3px);
     }
     /* Projects Section */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 35px;
+      margin-top: 50px;
     }
     .project-item {
       background: #1e1e1e;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
+      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+      transition: all 0.4s;
+      border: 1px solid #333;
     }
     .project-item:hover {
       transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      border-color: #ff7a7a;
     }
     .project-item img {
       width: 100%;
-      height: 220px;
+      height: 240px;
       object-fit: cover;
-      border-bottom: 3px solid #ff6b6b;
+      border-bottom: 4px solid #ff7a7a;
+    }
+    .project-details {
+      padding: 25px;
     }
     .project-item h3 {
-      padding: 20px 20px 0;
-      margin-top: 0;
-      color: #ff6b6b;
+      color: #ff7a7a;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
     }
     .project-item p {
-      padding: 0 20px 20px;
-      color: #b0b0b0;
+      margin-bottom: 12px;
+      color: #c0c0c0;
+    }
+    .position {
+      color: #ff9e9e;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .duration {
+      color: #aaa;
+      font-style: italic;
     }
     /* Contact Section */
     .contact {
       text-align: center;
-      background: #1a1a1a;
+      background: linear-gradient(135deg, #1a1a1a, #141414);
       border-radius: 15px;
-      padding: 50px 20px;
+      padding: 60px 30px;
       margin-top: 50px;
+      border: 1px solid #333;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
-    .contact form {
-      max-width: 500px;
-      margin: 30px auto;
+    .contact-form {
+      max-width: 550px;
+      margin: 40px auto 0;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
     }
     .contact input,
     .contact textarea {
-      padding: 12px 18px;
+      padding: 15px 20px;
       border: 1px solid #333;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       background: #252525;
       color: #f0f0f0;
+      transition: border-color 0.3s;
+    }
+    .contact input:focus,
+    .contact textarea:focus {
+      border-color: #ff7a7a;
+      outline: none;
     }
     .contact textarea {
-      height: 150px;
+      height: 160px;
       resize: vertical;
     }
     .contact button {
       cursor: pointer;
+      margin-top: 10px;
     }
     .whatsapp-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: #25D366;
       color: white;
-      padding: 12px 25px;
+      padding: 16px 35px;
       text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
       font-weight: bold;
-      transition: background 0.3s;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
     .whatsapp-btn:hover {
       background: #128C7E;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    .whatsapp-icon {
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+      color: #888;
+    }
+    .divider:before,
+    .divider:after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #444;
+    }
+    .divider span {
+      padding: 0 20px;
     }
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .about-content {
         flex-direction: column;
         text-align: center;
       }
       .hero h1 {
+        font-size: 3rem;
+      }
+      .hero p {
+        font-size: 1.3rem;
+      }
+      nav ul li a {
+        padding: 0 12px;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
         font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .logo {
+        font-size: 1.4rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        display: none;
       }
     }
   </style>
@@ -239,9 +367,11 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Saya Raihan Daffa</h1>
-    <p>Waiter Profesional dengan pengalaman 1+ tahun di industri hospitality</p>
-    <a href="#contact" class="btn">Hubungi Saya</a>
+    <div class="hero-content">
+      <h1>Saya Raihan Daffa</h1>
+      <p>Waiter Profesional & Junior Web Developer</p>
+      <a href="#contact" class="btn">Hubungi Saya</a>
+    </div>
   </section>
 
   <!-- Tentang Saya -->
@@ -249,9 +379,9 @@
     <h2>Tentang Saya</h2>
     <div class="about-content">
       <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Foto Raihan Daffa">
-      <div>
-        <p>Saya adalah waiter profesional dengan pengalaman lebih dari 1 tahun di restoran dan kafe ternama. Saya memiliki passion dalam memberikan pelayanan terbaik kepada pelanggan dan memastikan pengalaman makan mereka menyenangkan.</p>
-        <p>Saya ahli dalam menangani berbagai kebutuhan tamu, bekerja dalam tim yang cepat, dan menjaga standar kebersihan tinggi. Fleksibel bekerja shift malam maupun weekend.</p>
+      <div class="about-text">
+        <p>Saya adalah profesional di bidang hospitality dengan pengalaman lebih dari 1 tahun sebagai waiter di berbagai restoran dan lounge. Saya memiliki passion dalam memberikan pelayanan terbaik kepada pelanggan dan memastikan pengalaman mereka selalu istimewa.</p>
+        <p>Selain itu, saya juga sedang mengembangkan skill di bidang web development sebagai freelancer. Saya senang mempelajari hal baru dan selalu mencari kesempatan untuk berkembang baik di industri hospitality maupun teknologi.</p>
       </div>
     </div>
     <div class="skills">
@@ -263,8 +393,9 @@
         <li>Komunikasi Efektif</li>
         <li>Kerja Tim</li>
         <li>Multitasking</li>
-        <li>Kebersihan Makanan</li>
-        <li>Wine Pairing</li>
+        <li>HTML/CSS</li>
+        <li>JavaScript Dasar</li>
+        <li>Responsive Design</li>
       </ul>
     </div>
   </section>
@@ -274,19 +405,33 @@
     <h2>Pengalaman Kerja</h2>
     <div class="project-grid">
       <div class="project-item">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restoran Bintang 5">
-        <h3>Restoran Bintang 5</h3>
-        <p>Waiter utama dengan tanggung jawab melayani VIP guests dan private events. Mencatat rekomendasi wine pairing untuk menu spesial.</p>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wakaka Gading Serpong">
+        <div class="project-details">
+          <h3>Wakaka Gading Serpong</h3>
+          <p class="position">Waiter / Server</p>
+          <p class="duration">Sebagian dari total 1 tahun pengalaman kerja</p>
+          <p>Tugas: Melayani pelanggan, menyajikan pesanan, memastikan kepuasan pelanggan, menjaga kebersihan area kerja.</p>
+        </div>
       </div>
+      
       <div class="project-item">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kafe Modern">
-        <h3>Kafe Modern</h3>
-        <p>Bertanggung jawab atas area dengan 15 meja, melatih 3 staff baru, dan meningkatkan penjualan dessert sebesar 20% melalui rekomendasi kepada tamu.</p>
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="NYX'S Lounge & Bar">
+        <div class="project-details">
+          <h3>NYX'S Lounge & Bar</h3>
+          <p class="position">Waiter / Server</p>
+          <p class="duration">Sebagian dari total 1 tahun pengalaman kerja</p>
+          <p>Tugas: Melayani tamu, mengatur meja, memberikan rekomendasi menu, menjaga standar pelayanan.</p>
+        </div>
       </div>
+      
       <div class="project-item">
-        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Event Catering">
-        <h3>Event Catering</h3>
-        <p>Staff waiter untuk berbagai acara pernikahan dan corporate event dengan kapasitas 100-300 tamu per acara. Mengelola alur makanan dan minuman secara efisien.</p>
+        <img src="https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Freelance Web Development">
+        <div class="project-details">
+          <h3>Freelance Web Developer</h3>
+          <p class="position">Freelancer (Junior)</p>
+          <p class="duration">Akhir-akhir ini</p>
+          <p>Pekerjaan: Membuat 4 project landing page untuk berbagai kebutuhan dengan HTML, CSS, dan JavaScript dasar.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -294,15 +439,42 @@
   <!-- Kontak -->
   <section id="contact" class="contact">
     <h2>Hubungi Saya</h2>
-    <p>Silakan hubungi saya untuk peluang kerja atau informasi lebih lanjut:</p>
-    <a href="https://wa.me/628567912130" class="whatsapp-btn">Chat via WhatsApp</a>
-    <p style="margin: 20px 0; color: #888;">atau</p>
-    <form>
+    <p>Silakan hubungi saya untuk peluang kerja atau kolaborasi:</p>
+    
+    <a href="https://wa.me/628567912130" class="whatsapp-btn">
+      <span class="whatsapp-icon">📱</span> Chat via WhatsApp
+    </a>
+    
+    <div class="divider">
+      <span>Atau</span>
+    </div>
+    
+    <form class="contact-form">
       <input type="text" placeholder="Nama Anda" required>
       <input type="email" placeholder="Email Anda" required>
       <textarea placeholder="Pesan Anda"></textarea>
       <button type="submit" class="btn">Kirim Pesan</button>
     </form>
   </section>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Form submission handling (basic)
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Pesan Anda telah dikirim! Saya akan menghubungi Anda secepatnya.');
+      form.reset();
+    });
+  </script>
 </body>
 </html>
